@@ -510,4 +510,10 @@ document.getElementById("container").addEventListener("click", function(event) {
 
 `event.target` ist das Kind, das das Ereignis gestartet hat – event.currentTarget ist der Elternteil, der zuhört! 🎯
 
+## Links zum Nachlesen
 
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web)
+- [Stackoverflow](https://stackoverflow.com/)
+- [Regular Expression - Email Validation](https://regexr.com/3e48o)
+- [Wikipedia: JSON (deutsch)](https://de.wikipedia.org/wiki/JSON)
+- [Wikipedia: JSON (English)](https://en.wikipedia.org/wiki/JSON)

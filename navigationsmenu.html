@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigationsmenu</title>
+    <style>
+      div {
+        padding: 2rem;
+      }
+
+      nav#menu {
+        background-color: lightgreen;
+        padding: 2rem;
+      }
+
+      nav.closed {
+        height: 0px;
+      }
+
+      nav.closed ul {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Navigationsmenu</h1>
+    <nav id="menu" class="closed">
+      <ul>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+      </ul>
+    </nav>
+
+    <script>
+      const menu = document.getElementById("menu");
+
+      menu.addEventListener("click", function (event) {
+        menu.classList.toggle("closed");
+        console.log("Menu wurde geklickt");
+      });
+
+      document.querySelectorAll("li").forEach((item) => {
+        item.addEventListener("click", function (event) {
+          event.stopPropagation(); // stoppt Bubbling
+          console.log("Link wurde geklickt");
+        });
+      });
+
+      // Delegation!!! 
+    //   menu.querySelector("ul").addEventListener("click", function (event) {
+    //     if(event.target.tagName === "LI"|| event.target.tagName === "A") {
+    //         event.stopPropagation(); // stoppt Bubbling
+    //         console.log(`Link: ${event.target.textContent} wurde geklickt`);
+    //         console.log("currentTarget:", event.currentTarget, "target:", event.target);
+    //     }
+    //   });
+
+    </script>
+  </body>
+</html>

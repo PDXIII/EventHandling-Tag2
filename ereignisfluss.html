@@ -20,54 +20,26 @@
         .red {
             border: 2px solid red;
         }
-
-        nav#menu {
-            background-color: lightgreen;
-            padding: 2rem;
-        }
-
-        nav.closed {
-            height: 0px;
-        }
-
-        nav.closed ul {
-            display: none;
-        } 
-        
     </style>
 </head>
 <body>
 
     <h1 id="headline">Ereignisfluß</h1>
 
-
     <div id="outer">
         outer
         <div id="inner">inner</div>
     </div>
 
-    <nav id="menu" class="closed">
-        <ul>
-            <li><a href="">link 1</a></li>
-            <li><a href="">link 2</a></li>
-            <li><a href="">link 3</a></li>
-        </ul>
-    </nav>
  
     <script>
-        const headline = document.getElementById("headline");
-    
-        headline.addEventListener("mouseover", function() {
-            console.log("Mouse over Headline");
-        });
-
         const outer = document.getElementById("outer");
         const inner = document.getElementById("inner");
 
         outer.addEventListener("click", function(event) {
             outer.classList.toggle("red");
             console.log("Outer wurde geklickt - Capturing Phase");
-        }, true);
+        }, true); // weil wir als drittes Argument den true-Wert haben, wird die Phase Capturing aktiviert und darum wird dieser Event als erstes ausgeführt
 
         inner.addEventListener("click", function(event) {
             console.log("Inner wurde geklickt - Target Phase");
@@ -75,20 +47,7 @@
 
         outer.addEventListener("click", function(event) {
             console.log("Outer wurde geklickt - Bubbling Phase");
-        });
-
-        const menu = document.getElementById("menu");
-
-        menu.addEventListener("click", function(event) {
-            menu.classList.toggle("closed");
-            console.log("Menu wurde geklickt");
-        });
-
-        document.querySelectorAll("li").forEach((item) => {
-            item.addEventListener("click", function(event) {
-                console.log("Link wurde geklickt");
-            });
-        });
+        }); // ohne den true-Wert wird die Phase Bubbling aktiviert
 
     </script>
 

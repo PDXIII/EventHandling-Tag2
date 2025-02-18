@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="kontaktformular">
+        <label for="vorname">
+            Vorname
+        </label>
+        <br>
+        <input id="vorname" name="vorname" type="text">
+        <br>
+        <label for="nachname">
+            Nachname
+        </label>
+        <br>
+        <input id="nachname" name="nachname" type="text">
+        <br>
+        <label for="nachricht">
+            Deine Nachricht
+        </label>
+        <br>
+        <textarea name="nachricht" id="nachricht"></textarea>
+        <br>
+        <button type="submit">Absenden</button>
+        <br>
+    </form>
+    <br>
+    
+    <label for="checkbox">Link führt zu Google</label>
+    <br>
+    <input id="checkbox" name="checkbox" type="checkbox">
+    <a id="meinLink" href="https://google.com">Klick mich!</a>
+    <script>
+
+        const checkbox = document.getElementById("checkbox");
+        const meinLink = document.getElementById("meinLink");
+
+        checkbox.addEventListener("change", function(event) {
+            console.log(checkbox.checked)
+        });
+
+        meinLink.addEventListener("click", function(event) {
+            if (!checkbox.checked) {         
+                event.preventDefault();
+                console.log("Link wurde geklickt");
+            }
+        });
+
+        const formular = document.getElementById("kontaktformular");
+
+        formular.addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const vorname = document.getElementById("vorname").value;
+            const nachname = document.getElementById("nachname").value;
+            const nachricht = document.getElementById("nachricht").value;
+
+            console.table([{Vorname: vorname, Nachname: nachname, Nachricht: nachricht}]);
+
+        });
+    </script>
+</body>
+</html>

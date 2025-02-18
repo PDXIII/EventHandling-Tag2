@@ -41,21 +41,21 @@
         console.log("Menu wurde geklickt");
       });
 
-      document.querySelectorAll("li").forEach((item) => {
-        item.addEventListener("click", function (event) {
-          event.stopPropagation(); // stoppt Bubbling
-          console.log("Link wurde geklickt");
-        });
-      });
+    //   document.querySelectorAll("li").forEach((item) => {
+    //     item.addEventListener("click", function (event) {
+    //       event.stopPropagation(); // stoppt Bubbling
+    //       console.log("Link wurde geklickt");
+    //     });
+    //   });
 
       // Delegation!!! 
-    //   menu.querySelector("ul").addEventListener("click", function (event) {
-    //     if(event.target.tagName === "LI"|| event.target.tagName === "A") {
-    //         event.stopPropagation(); // stoppt Bubbling
-    //         console.log(`Link: ${event.target.textContent} wurde geklickt`);
-    //         console.log("currentTarget:", event.currentTarget, "target:", event.target);
-    //     }
-    //   });
+      menu.querySelector("ul").addEventListener("click", function (event) {
+        if(event.target.tagName === "LI"|| event.target.tagName === "A") {
+            event.stopPropagation(); // stoppt Bubbling
+            console.log(`Link: ${event.target.textContent} wurde geklickt`);
+            console.log("currentTarget:", event.currentTarget, "target:", event.target);
+        }
+      });
 
     </script>
   </body>
